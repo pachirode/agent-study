@@ -14,3 +14,7 @@ class ToolExecutor:
 def get_prompt_template():
     with open(r"src\resource\prompt\react.txt", "r", encoding="utf-8") as f:
         return f.read()
+
+def get_planner_prompt_template():
+    with open(r"src\resource\prompt\planSolve.txt", "r", encoding="utf-8") as f:
+        return f.read()

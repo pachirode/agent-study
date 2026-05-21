@@ -6,13 +6,13 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir in sys.path:
     sys.path.remove(current_dir)
 
-from agent.re_act.llm_client import AgentCilent
+from agent.re_act.llm_client import AgentClient
 from agent.re_act.tools import ToolExecutor, get_prompt_template
 from agent.re_act.utils import search
 from agent.re_act.parser import parse_output, parse_action, parse_action_input
 
 class ReactAgent:
-    def __init__(self, llm_client: AgentCilent, tool_executor: ToolExecutor):
+    def __init__(self, llm_client: AgentClient, tool_executor: ToolExecutor):
         self.llm_client = llm_client
         self.tool_executor = tool_executor
         self.max_steps = 3
@@ -89,7 +89,7 @@ class ReactAgent:
 
 
 if __name__ == "__main__":
-    llm_client = AgentCilent()
+    llm_client = AgentClient()
 
     tool_executor = ToolExecutor()
     tool_executor.register_tool("search", search)

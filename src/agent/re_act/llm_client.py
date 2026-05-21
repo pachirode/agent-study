@@ -7,7 +7,7 @@ env_path = os.path.join(os.path.dirname(__file__), "../../env/.env")
 load_dotenv(env_path)
 
 
-class AgentCilent:
+class AgentClient:
     def __init__(self, model: str=None, api_key: str=None, base_url: str=None) -> None:
         self.model = model or os.getenv("MODEL_ID")
         self.api_key = api_key or os.getenv("API_KEY")
@@ -48,6 +48,6 @@ class AgentCilent:
             return None
 
 if __name__ == "__main__":
-    agent = AgentCilent()
+    agent = AgentClient()
     msg = {"role": "user", "content": "你好"}
     print(agent.thinking(msg))

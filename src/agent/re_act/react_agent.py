@@ -1,10 +1,9 @@
-from agent.re_act.llm_client import AgentCilent
+from agent.re_act.llm_client import AgentClient
 from agent.re_act.tools import ToolExecutor, get_prompt_template
 from agent.re_act.utils import search
-from agent.re_act.parser import parse_output, parse_action, parse_action_input
 
 class ReactAgent:
-    def __init__(self, llm_client: AgentCilent, tool_executor: ToolExecutor):
+    def __init__(self, llm_client: AgentClient, tool_executor: ToolExecutor):
         self.llm_client = llm_client
         self.tool_executor = tool_executor
         self.max_steps = 10
@@ -42,7 +41,7 @@ class ReactAgent:
             break # 暂时中断循环，因为逻辑还不完整
 
 if __name__ == "__main__":
-    llm_client = AgentCilent()
+    llm_client = AgentClient()
 
     tool_executor = ToolExecutor()
     tool_executor.register_tool("search", search)
